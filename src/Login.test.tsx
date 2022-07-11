@@ -1,11 +1,5 @@
-import {
-  findByTestId,
-  render,
-  screen,
-  fireEvent,
-} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Login from "./Login";
-// import LoginProps from "./Login";
 
 describe("<Login />", () => {
   test("should take username, password and then submit values to the handler", () => {
