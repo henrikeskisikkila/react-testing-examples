@@ -5,14 +5,18 @@ describe("<Login />", () => {
   test("should take username, password and then submit values to the handler", () => {
     const handleLogin = jest.fn();
     render(<Login onSubmit={handleLogin} />);
+
     const username = screen.getByTestId("username");
-    const password = screen.getByTestId("password");
-    const login = screen.getByTestId("login");
     const user = "testuser";
-    const pass = "testpass";
     fireEvent.change(username, { target: { value: user } });
+
+    const password = screen.getByTestId("password");
+    const pass = "testpass";
     fireEvent.change(password, { target: { value: pass } });
+
+    const login = screen.getByTestId("login");
     fireEvent.click(login);
+
     expect(handleLogin).toHaveBeenCalledWith(user, pass);
   });
 });
