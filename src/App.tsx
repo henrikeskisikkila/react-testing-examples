@@ -1,4 +1,4 @@
-import Login from "./Login";
+import Counter from "./Counter";
 
 function App() {
   const handleLogin = (username: string, password: string) => {
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div>
-      <Login onSubmit={handleLogin} />
+      <Counter />
     </div>
   );
 }
