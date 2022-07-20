@@ -35,12 +35,20 @@ function Counter() {
       }}
     >
       <h1>Counter</h1>
-      <h1>{state.count}</h1>
+      <h1 data-testid="count">{state.count}</h1>
       <div>
-        <button onClick={handleDecrement} css={itemStyle}>
+        <button
+          onClick={handleDecrement}
+          css={itemStyle}
+          data-testid="decrement"
+        >
           -
         </button>
-        <button onClick={handleIncrement} css={itemStyle}>
+        <button
+          onClick={handleIncrement}
+          css={itemStyle}
+          data-testid="increment"
+        >
           +
         </button>
       </div>
