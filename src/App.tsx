@@ -1,13 +1,9 @@
-import Counter from "./Counter";
+import CocktailsSearch from "./CocktailsSearch";
 
 function App() {
-  const handleLogin = (username: string, password: string) => {
-    console.log(username, password);
-  };
-
   return (
     <div>
-      <Counter />
+      <CocktailsSearch />
     </div>
   );
 }
