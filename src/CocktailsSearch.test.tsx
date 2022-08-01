@@ -1,10 +1,4 @@
-import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-  log,
-} from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import CocktailsSearch from "./CocktailsSearch";
 import { mockServer } from "./mocks/server";
 
