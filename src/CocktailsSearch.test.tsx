@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { rest } from "msw";
 import CocktailsSearch from "./CocktailsSearch";
-import { mockServer } from "./mocks/server";
+import { mockServer } from "./mocks/testServer";
 
 beforeAll(() => mockServer.listen());
 afterEach(() => mockServer.resetHandlers());
