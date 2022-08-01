@@ -14,16 +14,12 @@ interface Cocktail {
 function CocktailsSearch() {
   const [result, setResult] = useState<Array<Cocktail>>([]);
   const [query, setQuery] = useState<string>("");
-
+  const [message, setMessage] = useState("");
   const handleSearch = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!query) {
-      return;
-    }
-    const result = await fetchCocktails(query);
-    if (result) {
-      setResult(result);
-    }
+    setMessage("");
+    const [cocktails, ok] = await fetchCocktails(query);
+    ok ? setResult(cocktails) : setMessage("Service unavailable");
     setQuery("");
   };
 
@@ -51,6 +47,7 @@ function CocktailsSearch() {
         </button>
       </form>
       <div>
+        <div>{message}</div>
         <div>{searchResults}</div>
       </div>
     </div>
