@@ -42,8 +42,13 @@ function CocktailsSearch() {
   return (
     <div>
       <form onSubmit={handleSearch}>
-        <input onChange={(event) => setQuery(event.target.value)} />
-        <button type="submit">Search</button>
+        <input
+          onChange={(event) => setQuery(event.target.value)}
+          data-testid="search"
+        />
+        <button type="submit" data-testid="submit">
+          Search
+        </button>
       </form>
       <div>
         <div>{searchResults}</div>
