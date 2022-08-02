@@ -1,23 +1,24 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import user from "@testing-library/user-event";
 import Register from "./Register";
 
 describe("Registration", () => {
   test("Render Register", () => {
     const mockHandleRegister = jest.fn();
     render(<Register handleRegister={mockHandleRegister} />);
-    const user = {
+    const mockUser = {
       email: "user@email.com",
       password: "secret",
     };
     const emailInput = screen.getByTestId("email");
-    fireEvent.change(emailInput, { target: { value: user.email } });
+    user.type(emailInput, mockUser.email);
     const passwordInput = screen.getByTestId("password");
-    fireEvent.change(passwordInput, { target: { value: user.password } });
+    user.type(passwordInput, mockUser.password);
     const button = screen.getByTestId("submit");
-    fireEvent.click(button);
+    user.click(button);
     expect(mockHandleRegister).toHaveBeenCalledWith({
-      email: user.email,
-      password: user.password,
+      email: mockUser.email,
+      password: mockUser.password,
     });
     expect(mockHandleRegister).toHaveBeenCalledTimes(1);
   });
